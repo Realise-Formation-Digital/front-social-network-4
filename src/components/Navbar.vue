@@ -20,7 +20,7 @@
     <!-- </v-app-bar> -->
 
     <!-- Components (pages) displayed here -->
-    <router-view></router-view>
+    
     </div>
 </template>
 
