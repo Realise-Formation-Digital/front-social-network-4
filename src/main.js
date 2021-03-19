@@ -1,22 +1,29 @@
 import Vue from 'vue'
 import App from './App.vue'
-
-//Importing plugins
-import vuetify from '@/plugins/vuetify'
+import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router'
 
 // Importing pages
-import Home from '@/pages/Home'
-import Villes from '@/pages/Villes'
-import Contact from '@/pages/Contact'
+import Home from './pages/Home'
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Villes from './pages/Villes'
+
+Vue.use(VueRouter)
+
+import './scss/main.scss';
 
 Vue.config.productionTip = false
-Vue.use(VueRouter)
+
 
 const routes = [
   {
     path: '/',
     component: Home
+  },
+  {
+    path: '/about',
+    component: About
   },
   {
     path: '/villes',
@@ -25,7 +32,7 @@ const routes = [
   { 
     path: '/contact',
     component: Contact
-  }
+  },
 ]
 
 const router = new VueRouter({
@@ -38,3 +45,4 @@ new Vue({
   router: router,
   render: h => h(App),
 }).$mount('#app')
+

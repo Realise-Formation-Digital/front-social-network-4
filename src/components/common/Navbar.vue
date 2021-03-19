@@ -1,10 +1,13 @@
 <template>
-  <div>
     <nav>
       <router-link  to="/" 
-        ><img id="logo" src="../assets/logo/freelance-2.jpg" ></router-link
+        ><img id="logo"  src="../../assets/logo/freelance-2.jpg"></router-link
       >
-
+      <router-link
+       class="menu-item"
+        to="/about"
+        >About</router-link
+      >
       <router-link
        class="menu-item"
         to="/villes"
@@ -17,11 +20,6 @@
         >Contact</router-link
       >
     </nav>
-    <!-- </v-app-bar> -->
-
-    <!-- Components (pages) displayed here -->
-    <router-view></router-view>
-    </div>
 </template>
 
 <script>
@@ -33,16 +31,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-
 nav {
   display: flex;
   background: #222;
-  width: 100%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
   padding: 0px 200px 0px 150px;
-
     #logo {
     padding-left: 15px;
-    height: 55px;
+    height: 70px;
     transform: scale(2);
   }
 

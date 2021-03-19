@@ -1,41 +1,82 @@
 <template>
-    <v-carousel cycle hide-delimiters>
-      <v-carousel-item
-        v-for="(item,i) in items"
-        :key="i"
-        :src="item.src"
-        reverse-transition="fade-transition"
-        transition="fade-transition"
-      >
-      </v-carousel-item>
-    </v-carousel>
+  <v-content>
+    <Carousel />
+
+    <div class="block galleryBlock">
+      <v-container>
+        <h2 class="text-center">Présentation</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </v-container>
+    </div>
+
+    <Gallery />
+
+    <LatestPost />
+  </v-content>
 </template>
 
 <script>
-  export default {
-        name: 'Home',
-data() {
-    return {
-      items: [
-        {
-          src: require("../assets/images/pexels-photo-1797161.jpeg"),
+import Carousel from "../components/home/Carousel";
+import Gallery from "../components/home/Gallery";
+import LatestPost from "../components/home/LatestPost";
 
-        },
-        {
-          src: require("../assets/images/pexels-photo-2775742.jpeg"),
+export default {
+  name: "Home",
 
-        },
-        {
-          src: require("../assets/images/pexels-photo-4452037.jpeg"),
-
-        }
-      ]
-    };
-  }
-  }
+  components: {
+    Carousel,
+    Gallery,
+    LatestPost,
+  },
+};
 </script>
+<style lang="scss">
+@import "../scss/main.scss";
+// hero block
+.heroBlock {
+  position: relative;
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+  .v-window {
+    @media only screen and (max-width: 599px) {
+      height: 220px !important;
+    }
+  }
 
+  .v-image__image {
+    &:before {
+      content: "";
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+  }
+
+  .title {
+    color: $white;
+    position: relative;
+    z-index: 2;
+    font: 300 50px/1.6 $primary-font !important;
+  }
+}
+
+// latest post block
+.latestPostBlock {
+  background: darken($white, 2%);
+
+  .v-card__title {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
 </style>
