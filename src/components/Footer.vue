@@ -3,7 +3,7 @@
     <div class="nav">
            
         <router-link  to="/" >
-            <img id="logo-footer" src="../assets/logo/freelance-2.jpg" >
+            <img id="logo-footer" src="../assets/logo/logo-backpack.png" >
         </router-link>
 
         <div>
