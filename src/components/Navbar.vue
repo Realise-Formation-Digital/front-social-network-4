@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav>
-      <router-link  to="/" 
-        ><img id="logo" src="../assets/logo/freelance-2.jpg" ></router-link
-      >
+      <router-link  to="/" >
+        <img id="logo" src="../assets/logo/freelance-2.jpg" >
+      </router-link>
 
       <router-link
        class="menu-item"
