@@ -1,0 +1,33 @@
+nav {
+    display: flex;
+    background: $white;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    padding: 0px 200px 0px 150px;
+      #logo {
+      padding-left: 15px;
+      height: 70px;
+      transform: scale(2);
+    }
+  
+    :nth-child(2) {
+    margin-left: auto;
+    }
+  
+    .menu-item {
+      text-decoration: none;
+      color: $black;
+      padding: 20px 40px;
+      position: relative;
+      text-align: center;
+      border-bottom: 3px solid transparent;
+      transition: 0.4s;
+  
+      &.active, &:hover {
+        background-color: rgb(214, 214, 214);
+        border-bottom-color: #FF5858;
+      }
+    }
+  }
