@@ -17,7 +17,7 @@
       </v-container>
     </div>
 
-    <Gallery />
+    <Continents />
 
     <LatestPost />
   </v-content>
@@ -25,7 +25,7 @@
 
 <script>
 import Carousel from "../components/home/Carousel";
-import Gallery from "../components/home/Gallery";
+import Continents from "../components/home/Continents";
 import LatestPost from "../components/home/LatestPost";
 
 export default {
@@ -33,7 +33,7 @@ export default {
 
   components: {
     Carousel,
-    Gallery,
+    Continents,
     LatestPost,
   },
 };
