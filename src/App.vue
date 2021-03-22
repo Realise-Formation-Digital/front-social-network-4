@@ -1,33 +1,29 @@
 <template>
-  <div>
-    <Navbar />
-      <router-view></router-view>
-    <Footer />
-  </div>
+  <v-app>
+    <v-app-bar max-height="64px">
+      <Navbar />
+    </v-app-bar>
+
+   <router-view style="margin-top:6px"></router-view>
+
+    <v-footer>
+      <Footer />
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer.vue'
+import Navbar from "./components/common/Navbar";
 
 export default {
-  name: 'App',
+  name: "App",
+
   components: {
     Navbar,
-    Footer
-  }
-}
+  },
+
+  data: () => ({
+    //
+  })
+};
 </script>
-
-<style>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body{
-  font-family: 'monsterrat', sans-serif;
-}
-
-</style>
