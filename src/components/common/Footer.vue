@@ -73,10 +73,12 @@
             .icônes{
                 width: 70%;
                 margin-top: 50%;
+                
             }
             .gmaps{
-                width: 10%;
-
+                width: 31%;
+                margin-top: 35%;
+                margin-right: 50%;
             }
         .copyright{
             margin-top: 20%;            
