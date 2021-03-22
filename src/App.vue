@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar flat max-height="65">
+    <v-app-bar max-height="64px">
       <Navbar />
     </v-app-bar>
 
-    <router-view></router-view>
+   <router-view style="margin-top:6px"></router-view>
 
     <v-footer>
       <Footer />
