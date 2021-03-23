@@ -12,25 +12,31 @@
            <p class="copyright">© 2021 BackPack, Inc. All rights reserved</p>
         </div>
 
-        <div class="container" id="cont3">   
-                <div> 
+        <div class="container" id="cont3">  
+                <router-link  to="/"> 
                     <img class="icônes" src="../../assets/icônes/black-fb.png">
-                </div>
-                <div>
+                </router-link>
+                
+                <router-link  to="/"> 
                     <img class="icônes" src="../../assets/icônes/black-insta.png">
-                </div>
-                <div>
+                </router-link>
+
+                <router-link to="/">
                     <img class="icônes" src="../../assets/icônes/black-twitter.png">
-                </div>
-                <div>
+                </router-link>
+
+                <router-link to="/">
                     <img class="icônes" src="../../assets/icônes/black-tripadvisor.png">
-                </div>
-                <div>
+                </router-link>
+
+                <router-link to="/">
                     <img class="icônes" src="../../assets/icônes/black-airbnb.png">
-                </div>
-                <div>
+                </router-link>
+<!-- 
+                <router-link to="/">
                     <img class="icônes, gmaps" src="../../assets/icônes/black-gmapspin.png"> 
-                </div>
+                </router-link>
+ -->                
         </div>
 
     </div>
@@ -54,12 +60,18 @@
     */
 
     .footer{
-        background-color: #5C1110;
+        background-color: rgb(212, 212, 212);
         color: black;
         display: flex;
-        margin-bottom: -100px;
         width: 100%;
         justify-content: space-evenly;
+        width: 100%;
+        
+        position:absolute;
+        bottom:0;
+        right:0;
+        left: 0;
+
 
         font-weight: bold;
         font-size: medium;
@@ -68,10 +80,10 @@
         .container{
             width: 100%;
             text-align: center;
-                
+            
         }
             .icônes{
-                width: 70%;
+                width: 50%;
                 margin-top: 50%;
                 
             }
@@ -88,6 +100,7 @@
         #cont3{
             display: flex;
             margin-bottom: 0px;
+            
         }
         #logovoyage{
             width: 20%;
