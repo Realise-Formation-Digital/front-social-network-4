@@ -17,7 +17,7 @@
       </v-container>
     </div>
 
-    <Gallery />
+    <Continents />
 
     <LatestPost />
   </v-content>
@@ -25,7 +25,7 @@
 
 <script>
 import Carousel from "../components/home/Carousel";
-import Gallery from "../components/home/Gallery";
+import Continents from "../components/home/Continents";
 import LatestPost from "../components/home/LatestPost";
 
 export default {
@@ -33,50 +33,12 @@ export default {
 
   components: {
     Carousel,
-    Gallery,
+    Continents,
     LatestPost,
   },
 };
 </script>
 <style lang="scss">
 @import "../scss/main.scss";
-// hero block
-.heroBlock {
-  position: relative;
 
-  .v-window {
-    @media only screen and (max-width: 599px) {
-      height: 220px !important;
-    }
-  }
-
-  .v-image__image {
-    &:before {
-      content: "";
-      background: rgba(0, 0, 0, 0.3);
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-    }
-  }
-
-  .title {
-    color: $white;
-    position: relative;
-    z-index: 2;
-    font: 300 50px/1.6 $primary-font !important;
-  }
-}
-
-// latest post block
-.latestPostBlock {
-  background: darken($white, 2%);
-
-  .v-card__title {
-    background: rgba(0, 0, 0, 0.3);
-  }
-}
 </style>
