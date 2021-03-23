@@ -1,0 +1,26 @@
+export default {
+  methods: {
+    test(x) {
+      console.log(x);
+    },
+
+    async show() {
+      try {
+          //Create API url
+          
+          //Connect to API
+          const axios = require('axios')
+          //Wait the response and pass the url
+          const result = await axios.get("http://127.0.0.1:8000/api/posts")
+
+          //Pass result from API into table
+          this.table = result.data
+
+          console.log(this.table);
+
+      } catch (e) {
+          console.error(e)
+      }
+  },
+  },
+};
