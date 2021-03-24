@@ -1,0 +1,121 @@
+export default {
+  data() {
+    return {
+      table: [],
+      filteredTable: [],
+
+      filters: [
+        { name: "Prix", value: 1 },
+        { name: "Internet", value: 1 },
+        { name: "Securité", value: 1 },
+        { name: "Distractions", value: 1 },
+        { name: "Appartements", value: 1 },
+      ],
+
+      language: null,
+      languages: [
+        { text: "french", name: "Français" },
+        { text: "german", name: "Allemand" },
+        { text: "english", name: "Anglais" },
+        { text: "spanish", name: "Espagnol" },
+        { text: "italian", name: "Italien" },
+      ],
+
+      continent: null,
+      continents: [
+        {
+          title: "Amerique",
+          api: "America",
+          src: require("../assets/images/America.jpg"),
+        },
+
+        {
+          title: "Europe",
+          api: "Europa",
+          src: require("../assets/images/Europe.jpeg"),
+        },
+
+        {
+          title: "Asia",
+          api: "Asia",
+          src: require("../assets/images/Asia.jpg"),
+        },
+
+        {
+          title: "Afrique",
+          api: "Africa",
+          src: require("../assets/images/Africa.jpg"),
+        },
+
+        {
+          title: "Oceanie",
+          api: "Oceania",
+          src: require("../assets/images/Australia.jpg"),
+        },
+      ],
+    };
+  },
+
+  methods: {
+    test(x) {
+      console.log(x);
+    },
+
+    async getTable() {
+      try {
+        //Create API url
+
+        //Connect to API
+        const axios = require("axios");
+        //Wait the response and pass the url
+        const result = await axios.get("http://127.0.0.1:8000/api/posts");
+
+        //Pass result from API into table
+        this.table = result.data;
+
+        console.log(this.table);
+      } catch (e) {
+        console.error(e);
+      }
+    },
+
+    languageFilter() {
+      this.filteredTable = this.table.filter(city => city.language === this.language);
+      console.log(this.filteredTable)
+    },
+
+    priceFilter() {
+      this.filteredTable = this.filteredTable.filter(city => city.price_life === this.filters[0].value);
+      console.log(this.filteredTable)
+    },
+
+    internetFilter() {
+      this.filteredTable = this.filteredTable.filter(city => city.internet_good === this.filters[1].value);
+      console.log(this.filteredTable)
+    },
+
+    securityFilter() {
+      this.filteredTable = this.filteredTable.filter(city => city.city_save === this.filters[2].value);
+      console.log(this.filteredTable)
+    },
+
+    amusementFilter() {
+      this.filteredTable = this.filteredTable.filter(city => city.amusement === this.filters[3].value);
+      console.log(this.filteredTable)
+    },
+
+    apartmentFilter() {
+      this.filteredTable = this.filteredTable.filter(city => city.apartment_easy === this.filters[4].value);
+      console.log(this.filteredTable)
+    },
+
+    show() {
+      this.languageFilter();
+      this.priceFilter();
+      this.internetFilter();
+      this.securityFilter();
+      this.amusementFilter();
+      this.apartmentFilter();
+    }
+  },
+};

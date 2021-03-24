@@ -11,12 +11,12 @@
     </v-img>
 
     <v-container>
-      <v-row>
-        <v-col v-for="(item, index) in items" :key="index" cols="6">
+      <v-row align="center" justify="center">
+        <v-col v-for="(item, index) in continents" :key="index" cols="2">
           <v-card
             outlined
             class="latestPostBlock"
-            @click="(continent = item.title), test(continent)"
+            @click="(continent = item.api), getTable();"
           >
             <v-img
               class="white--text align-end cardsImage"
@@ -29,45 +29,70 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <v-container v-if="continent !== null">
+      <v-row align="center" justify="center">
+        <v-col cols="6">
+          <v-select
+            v-model="language"
+            :items="languages"
+            label="Language"
+          ></v-select>
+        </v-col>
+        <v-col v-for="(filter, index) in filters" :key="index" cols="6">
+          <v-subheader>{{ filter.name }}</v-subheader>
+
+          <v-card-text>
+            <v-slider
+              v-model="filter.value"
+              thumb-label="always"
+              min="1"
+              max="5"
+              ticks="always"
+              tick-size="4"
+            ></v-slider>
+          </v-card-text>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container align="center" justify="center">
+      <v-btn depressed color="primary" block @click="show()">TEST</v-btn>
+      <v-row>
+        <v-col v-for="item in filteredTable" :key="item.id" cols="12" md="4">
+          <v-card outlined class="mx-auto">
+            <v-img
+              class="white--text align-end"
+              height="200px"
+              :src="item.image_city"
+            >
+              <v-card-title>{{ item.city_name }}</v-card-title>
+            </v-img>
+            <v-card-subtitle class="pb-0"></v-card-subtitle>
+            <v-card-text class="text--primary">
+              <div></div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="primary" text>More</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-content>
 </template>
 
 <script>
-import filters from "../JS/filters";
+import axiosMixin from "../JS/axiosMixin";
 
 export default {
   name: "Villes",
-  mixins: [filters],
+  mixins: [axiosMixin],
+
   data() {
     return {
-      continent: null,
+      
 
-      items: [
-        {
-          title: "Amerique",
-          src: require("../assets/images/America.jpg"),
-        },
-
-        {
-          title: "Europe",
-          src: require("../assets/images/Europe.jpeg"),
-        },
-
-        {
-          title: "Asia",
-          src: require("../assets/images/Asia.jpg"),
-        },
-
-        {
-          title: "Afrique",
-          src: require("../assets/images/Africa.jpg"),
-        },
-
-        {
-          title: "Australia",
-          src: require("../assets/images/Australia.jpg"),
-        },
-      ],
     };
   },
 
