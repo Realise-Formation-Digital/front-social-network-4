@@ -16,7 +16,7 @@
           <v-card
             outlined
             class="latestPostBlock"
-            @click="(continent = item.api), getTable();"
+            @click="noFilter(item)"
           >
             <v-img
               class="white--text align-end cardsImage"
@@ -54,7 +54,7 @@
           </v-card-text>
         </v-col>
       </v-row>
-      <v-btn depressed color="primary" block @click="show()">SEARCH</v-btn>
+      <v-btn depressed color="primary" block @click="show()">Recherche</v-btn>
     </v-container>
 
     <v-container align="center" justify="center">
@@ -70,10 +70,10 @@
             </v-img>
             <v-card-subtitle class="pb-0"></v-card-subtitle>
             <v-card-text class="text--primary">
-              <div></div>
+              <div class="overflow">{{item.description}}</div>
             </v-card-text>
             <v-card-actions>
-              <v-btn color="primary" text>More</v-btn>
+              <v-btn color="primary" text>Lire plus</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -103,4 +103,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import "../scss/main.scss";
+
+.overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>

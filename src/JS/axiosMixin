@@ -8,8 +8,6 @@ export default {
         { name: "Prix", value: 1 },
         { name: "Internet", value: 1 },
         { name: "Securité", value: 1 },
-        { name: "Distractions", value: 1 },
-        { name: "Appartements", value: 1 },
       ],
 
       language: null,
@@ -79,6 +77,12 @@ export default {
       }
     },
 
+    async noFilter(item) {
+      this.continent = item.api;
+      await this.getTable();
+      this.filteredTable = this.table
+    },
+
     languageFilter() {
       this.filteredTable = this.table.filter(city => city.language === this.language);
       console.log(this.filteredTable)
@@ -99,23 +103,11 @@ export default {
       console.log(this.filteredTable)
     },
 
-    amusementFilter() {
-      this.filteredTable = this.filteredTable.filter(city => city.amusement === this.filters[3].value);
-      console.log(this.filteredTable)
-    },
-
-    apartmentFilter() {
-      this.filteredTable = this.filteredTable.filter(city => city.apartment_easy === this.filters[4].value);
-      console.log(this.filteredTable)
-    },
-
     show() {
       this.languageFilter();
       this.priceFilter();
       this.internetFilter();
       this.securityFilter();
-      this.amusementFilter();
-      this.apartmentFilter();
     }
   },
 };
