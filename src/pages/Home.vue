@@ -19,14 +19,12 @@
 
     <Continents />
 
-    <LatestPost />
   </v-content>
 </template>
 
 <script>
 import Carousel from "../components/home/Carousel";
 import Continents from "../components/home/Continents";
-import LatestPost from "../components/home/LatestPost";
 
 export default {
   name: "Home",
@@ -34,7 +32,6 @@ export default {
   components: {
     Carousel,
     Continents,
-    LatestPost,
   },
 };
 </script>
