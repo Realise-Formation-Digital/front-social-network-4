@@ -54,10 +54,10 @@
           </v-card-text>
         </v-col>
       </v-row>
+      <v-btn depressed color="primary" block @click="show()">SEARCH</v-btn>
     </v-container>
 
     <v-container align="center" justify="center">
-      <v-btn depressed color="primary" block @click="show()">TEST</v-btn>
       <v-row>
         <v-col v-for="item in filteredTable" :key="item.id" cols="12" md="4">
           <v-card outlined class="mx-auto">
