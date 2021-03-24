@@ -32,7 +32,7 @@
                 <router-link to="/">
                     <img class="icônes" src="../../assets/icônes/black-airbnb.png">
                 </router-link>
-<!-- 
+<!--    
                 <router-link to="/">
                     <img class="icônes, gmaps" src="../../assets/icônes/black-gmapspin.png"> 
                 </router-link>
@@ -66,12 +66,6 @@
         width: 100%;
         justify-content: space-evenly;
         width: 100%;
-        
-        position:absolute;
-        bottom:0;
-        right:0;
-        left: 0;
-
 
         font-weight: bold;
         font-size: medium;
@@ -83,7 +77,7 @@
             
         }
             .icônes{
-                width: 50%;
+                width: 40%;
                 margin-top: 50%;
                 
             }
