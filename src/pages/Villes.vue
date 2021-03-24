@@ -10,13 +10,14 @@
       </v-row>
     </v-img>
 
-    <v-container>
+
       <v-row align="center" justify="center">
         <v-col v-for="(item, index) in continents" :key="index" cols="2">
           <v-card
             outlined
-            class="latestPostBlock"
-            @click="noFilter(item)"
+            class = "latestPostBlock"
+            :class="{ highlight: index == selected }"
+            @click="noFilter(item), (selected = index)"
           >
             <v-img
               class="white--text align-end cardsImage"
@@ -28,7 +29,7 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
+
 
     <v-container v-if="continent !== null">
       <v-row align="center" justify="center">
@@ -70,7 +71,7 @@
             </v-img>
             <v-card-subtitle class="pb-0"></v-card-subtitle>
             <v-card-text class="text--primary">
-              <div class="overflow">{{item.description}}</div>
+              <div class="overflow">{{ item.description }}</div>
             </v-card-text>
             <v-card-actions>
               <v-btn color="primary" text>Lire plus</v-btn>
@@ -91,8 +92,7 @@ export default {
 
   data() {
     return {
-      
-
+      selected: undefined,
     };
   },
 
@@ -108,5 +108,9 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.highlight {
+  border: 7px inset rgb(255, 0, 0) !important;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <nav>
     <router-link to="/"
-      ><img id="logo" src="../../assets/logo/freelance-2.jpg"
+      ><img id="logo" src="../../assets/logo/BackPack-small.png"
     /></router-link>
 
     <router-link class="menu-item" to="/about">About</router-link>

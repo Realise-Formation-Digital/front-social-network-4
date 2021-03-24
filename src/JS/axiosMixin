@@ -6,8 +6,6 @@ export default {
 
       filters: [
         { name: "Prix", value: 1 },
-        { name: "Internet", value: 1 },
-        { name: "Securité", value: 1 },
       ],
 
       language: null,
@@ -46,7 +44,7 @@ export default {
         },
 
         {
-          title: "Oceanie",
+          title: "Océanie",
           api: "Oceania",
           src: require("../assets/images/Australia.jpg"),
         },
@@ -62,11 +60,11 @@ export default {
     async getTable() {
       try {
         //Create API url
-
+        const url = "http://localhost:8000/api/posts/continent/" + this.continent
         //Connect to API
         const axios = require("axios");
         //Wait the response and pass the url
-        const result = await axios.get("http://127.0.0.1:8000/api/posts");
+        const result = await axios.get(url);
 
         //Pass result from API into table
         this.table = result.data;
@@ -79,6 +77,7 @@ export default {
 
     async noFilter(item) {
       this.continent = item.api;
+      console.log(this.continent);
       await this.getTable();
       this.filteredTable = this.table
     },
@@ -93,21 +92,11 @@ export default {
       console.log(this.filteredTable)
     },
 
-    internetFilter() {
-      this.filteredTable = this.filteredTable.filter(city => city.internet_good === this.filters[1].value);
-      console.log(this.filteredTable)
-    },
 
-    securityFilter() {
-      this.filteredTable = this.filteredTable.filter(city => city.city_save === this.filters[2].value);
-      console.log(this.filteredTable)
-    },
 
     show() {
       this.languageFilter();
       this.priceFilter();
-      this.internetFilter();
-      this.securityFilter();
     }
   },
 };
