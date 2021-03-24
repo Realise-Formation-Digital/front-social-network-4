@@ -30,16 +30,6 @@ export default {
     return {
       dialog: false,
 
-      user: {
-        // email: 'admin@example.com',
-        // password: 'admin',
-        // name: 'John Doe',
-      },
-
-      options: {
-        isLoggingIn: true,
-        shouldStayLoggedIn: true,
-      },
     };
   },
 };
