@@ -3,14 +3,17 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
+
 // Importing pages
 import Home from './pages/Home'
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Villes from './pages/Villes'
 
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
@@ -18,7 +21,6 @@ Vue.use(VueAxios, axios)
 import './scss/main.scss';
 
 Vue.config.productionTip = false
-
 
 const routes = [
   {
