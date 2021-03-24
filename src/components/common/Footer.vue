@@ -13,30 +13,30 @@
         </div>
 
         <div class="container" id="cont3">  
-                <router-link  to="/"> 
+                <router-link  to="/contact"> 
                     <img class="icônes" src="../../assets/icônes/black-fb.png">
                 </router-link>
                 
-                <router-link  to="/"> 
+                <router-link  to="/contact"> 
                     <img class="icônes" src="../../assets/icônes/black-insta.png">
                 </router-link>
 
-                <router-link to="/">
+                <router-link  to="/contact">
                     <img class="icônes" src="../../assets/icônes/black-twitter.png">
                 </router-link>
 
-                <router-link to="/">
+                <router-link  to="/contact">
                     <img class="icônes" src="../../assets/icônes/black-tripadvisor.png">
                 </router-link>
 
-                <router-link to="/">
+                <router-link  to="/contact">
                     <img class="icônes" src="../../assets/icônes/black-airbnb.png">
                 </router-link>
-<!--    
-                <router-link to="/">
+            <!-- 
+                <router-link  to="/contact">
                     <img class="icônes, gmaps" src="../../assets/icônes/black-gmapspin.png"> 
                 </router-link>
- -->                
+            -->   
         </div>
 
     </div>
@@ -64,7 +64,7 @@
         color: black;
         display: flex;
         width: 100%;
-        justify-content: space-evenly;
+        
         width: 100%;
 
         font-weight: bold;
@@ -78,11 +78,12 @@
         }
             .icônes{
                 width: 40%;
-                margin-top: 50%;
+                margin-top: 55%;
+                justify-content: end;
                 
             }
             .gmaps{
-                width: 31%;
+                width: 24%;
                 margin-top: 35%;
                 margin-right: 50%;
             }
