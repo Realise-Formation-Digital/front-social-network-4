@@ -1,6 +1,8 @@
 <template>
   <v-container>
     <h2 class="text-center">Continents</h2>
+
+    <!-- Loop  through continents table, for each shows image, title... -->
     <v-row v-for="(continent, index) in continents" :key="index">
       <v-col class="d-flex child-flex" cols="6" sm="4">
         <v-card outlined class="mx-auto latestPostBlock">
@@ -19,6 +21,8 @@
           </v-card-text>
         </v-card>
       </v-col>
+
+      <!-- ...and 5 citys with most likes from api-->
       <v-col class="d-flex child-flex" cols="6" sm="8">
         <v-simple-table>
           <template v-slot:default>
@@ -91,12 +95,14 @@ export default {
       //Connect to API
       const axios = require("axios");
       //Wait the response and pass the url
-
+      // Loops through continents table
       for (let i = 0; i < this.continents.length; i++) {
+        // Creates url with continent name
         let url =
           "http://localhost:8000/api/posts/continent/" + this.continents[i].api;
         let result = await axios.get(url);
         let data = result.data;
+        // Sorts table with most likes, and leaves 5 of them
         data.sort((a, b) => (a.likes < b.likes ? 1 : -1));
         data = data.slice(0, 5);
         //Pass result from API into table

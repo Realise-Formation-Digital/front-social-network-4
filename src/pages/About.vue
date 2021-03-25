@@ -28,6 +28,8 @@
         </p>
       </v-container>
     </div>
+
+    <!-- Grid of users from API-->
     <div class="block">
       <v-container>
         <h2 class="text-center">Our Team</h2>
@@ -47,8 +49,10 @@
               ></v-img>
               <v-card-text class="text--primary text-center">
                 <div class="title">{{ item.name }}</div>
-                <p>{{ item.job }} <br> {{ item.email }}</p>
-               
+                <p>
+                  {{ item.job }} <br />
+                  {{ item.email }}
+                </p>
               </v-card-text>
             </v-card>
           </v-col>
@@ -63,25 +67,22 @@ export default {
   name: "About",
   data() {
     return {
-      table: []
+      table: [],
     };
   },
 
- async mounted() {
-      try {
-        //Connect to API
-        const axios = require("axios");
-        //Wait the response and pass the url
-        const result = await axios.get("http://localhost:8000/api/users");
+  async mounted() {
+    try {
+      //Connect to API
+      const axios = require("axios");
+      //Wait the response and pass the url
+      const result = await axios.get("http://localhost:8000/api/users");
 
-        //Pass result from API into table
-        this.table = result.data;
-
-      } catch (e) {
-       alert(e)
-      }
-    
+      //Pass result from API into table
+      this.table = result.data;
+    } catch (e) {
+      console.log(e);
+    }
   },
-
 };
 </script>

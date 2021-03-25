@@ -12,7 +12,7 @@
     <div class="menu-item loginButton" @click.stop="dialog = true">Login</div>
 
     <v-dialog v-model="dialog" max-width="500">
-     <Login />
+      <Login />
     </v-dialog>
   </nav>
 </template>
@@ -23,13 +23,12 @@ import Login from "./Login";
 export default {
   name: "Navbar",
 
-   components: {
-     Login
+  components: {
+    Login,
   },
   data() {
     return {
       dialog: false,
-
     };
   },
 };
