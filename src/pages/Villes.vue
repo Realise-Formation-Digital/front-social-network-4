@@ -13,11 +13,7 @@
     <v-container>
       <v-row align="center" justify="center">
         <v-col v-for="(item, index) in continents" :key="index" cols="2">
-          <v-card
-            outlined
-            class="latestPostBlock"
-            @click="noFilter(item)"
-          >
+          <v-card outlined class="latestPostBlock" @click="noFilter(item)">
             <v-img
               class="white--text align-end cardsImage"
               height="200px"
@@ -70,11 +66,73 @@
             </v-img>
             <v-card-subtitle class="pb-0"></v-card-subtitle>
             <v-card-text class="text--primary">
-              <div class="overflow">{{item.description}}</div>
+              <div class="overflow">{{ item.description }}</div>
             </v-card-text>
-            <v-card-actions>
-              <v-btn color="primary" text>Lire plus</v-btn>
-            </v-card-actions>
+
+            <!-- début modale---------------------------------------------------------------------------------------------------------------- -->
+            <v-container>
+              <v-row justify="space-around">
+                <v-col cols="auto">
+                  <v-dialog transition="dialog-top-transition" max-width="600">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn color="primary" v-bind="attrs" v-on="on"
+                        >more</v-btn
+                      >
+                    </template>
+                    <template v-slot:default="dialog" class="MOODAL">
+                      <v-card>
+                        <!-- titre modal -->
+                        <v-toolbar color="primary" dark
+                          ><h1 class="titre-modale">
+                            Welcome to {{ item.city_name }} !
+                          </h1></v-toolbar
+                        >
+
+                        <!-- texte modal -->
+                        <v-card-text>
+                          <div class="text-h2 pa-12, Discover" titre-modal>
+                            <h4>
+                              Discover the city of
+                              <span class="BOLD">{{ item.city_name }}</span>
+                              situated in
+                              <span class="BOLD">{{ item.country }}</span>
+                              in
+                              <span class="BOLD">{{ item.continent }}</span>
+                            </h4>
+                          </div>
+                          <br />
+                          <div class="stats">
+                            price_life : {{ item.price_life }}/5 <br />
+                            internet_good : {{ item.internet_good }}/5 <br />
+                            city_save : {{ item.city_save }}/5 <br />
+                            apartment_easy : {{ apartment_easy }}/5 <br />
+                            amusement : {{ item.amusement }}/5 <br />
+                            here, we talk {{ item.language }} <br /><br />
+                            
+                          </div>
+
+                          <!-- Description modal -->
+
+                          <div class="Description">
+                            <h4 class="BOLD">
+                            description of the city : <br />
+                            </h4>
+                            {{ item.description }}
+                          </div>
+                        </v-card-text>
+                        <v-card-actions class="justify-end">
+                          <v-btn text @click="dialog.value = false"
+                            >Close</v-btn
+                          >
+                        </v-card-actions>
+                      </v-card>
+                    </template>
+                  </v-dialog>
+                </v-col>
+              </v-row>
+            </v-container>
+
+            <!-- -fin modale--------------------------------------------------------------------------------------------------------------- -->
           </v-card>
         </v-col>
       </v-row>
@@ -91,8 +149,7 @@ export default {
 
   data() {
     return {
-      
-
+      dialog2: false,
     };
   },
 
@@ -108,5 +165,34 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.MOODAL {
+  background-color: black;
+}
+
+.Discover {
+  font-weight: bold;
+  margin-top: 7%;
+  color: black;
+}
+
+.titre-modale {
+  font-weight: bold;
+  margin: auto;
+}
+
+.BOLD {
+  font-family: serif;
+  font-weight: bold;
+}
+
+.Description {
+  color: black;
+  text-align: justify;
+}
+
+.stats {
+  color: black;
 }
 </style>

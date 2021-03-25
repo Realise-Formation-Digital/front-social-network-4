@@ -6,9 +6,8 @@
 
    <router-view style="margin-top:6px"></router-view>
 
-    <v-footer>
       <Footer />
-    </v-footer>
+ 
   </v-app>
 </template>
 
