@@ -4,9 +4,7 @@ export default {
       table: [],
       filteredTable: [],
 
-      filters: [
-        { name: "Prix", value: 1 },
-      ],
+      filters: [{ name: "Prix", value: 1 }],
 
       language: null,
       languages: [
@@ -53,14 +51,11 @@ export default {
   },
 
   methods: {
-    test(x) {
-      console.log(x);
-    },
-
     async getTable() {
       try {
         //Create API url
-        const url = "http://localhost:8000/api/posts/continent/" + this.continent
+        const url =
+          "http://localhost:8000/api/posts/continent/" + this.continent;
         //Connect to API
         const axios = require("axios");
         //Wait the response and pass the url
@@ -75,28 +70,34 @@ export default {
       }
     },
 
-    async noFilter(item) {
+    // Unfiltered search for given continent API
+    async noFilterSearch(item) {
       this.continent = item.api;
       console.log(this.continent);
       await this.getTable();
-      this.filteredTable = this.table
+      this.filteredTable = this.table;
     },
 
+    // Filters table for chosen language
     languageFilter() {
-      this.filteredTable = this.table.filter(city => city.language === this.language);
-      console.log(this.filteredTable)
+      this.filteredTable = this.table.filter(
+        (city) => city.language === this.language
+      );
+      console.log(this.filteredTable);
     },
 
+    // Filters table for chosen price
     priceFilter() {
-      this.filteredTable = this.filteredTable.filter(city => city.price_life === this.filters[0].value);
-      console.log(this.filteredTable)
+      this.filteredTable = this.filteredTable.filter(
+        (city) => city.price_life === this.filters[0].value
+      );
+      console.log(this.filteredTable);
     },
 
-
-
-    show() {
+    // Filters when clicked on button
+    filterSearch() {
       this.languageFilter();
       this.priceFilter();
-    }
+    },
   },
 };
